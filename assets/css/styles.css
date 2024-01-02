@@ -1,0 +1,148 @@
+@import url(reset.css);
+@import url(root.css);
+@import url(fonts.css);
+@import url(btn.css);
+
+
+.container {
+   width: 70%;
+   margin: var(--w-sm) auto;
+}
+
+.navbar {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   padding: var(--gap-lg);
+   border-radius: var(--gap-sm);
+
+   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.navbar__shop,
+.navbar__form {
+   display: flex;
+   gap: var(--gap-sm);
+   align-items: center;
+}
+
+.navbar__shop-logo {
+   width: var(--w-sm);
+   height: var(--w-sm);
+}
+
+#search {
+   padding: var(--gap-sm);
+   border: 1px solid var(--bg);
+   border-radius: var(--gap-sm);
+
+   background: var(--white);
+
+   width: 100%;
+}
+
+#search:focus {
+   outline: 2px solid var(--dark-blue);
+}
+
+.main__shop-carts {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+   gap: var(--gap-mm);
+}
+
+.shop__cart-image {
+   width: var(--w-lg);
+   height: var(--w-lg);
+}
+
+.main__shop-cart {
+   width: 32%;
+   min-width: 32.5%;
+   
+
+   display: flex;
+   flex-direction: column;
+   gap: var(--gap-mm);
+
+   padding: var(--gap-sm);
+
+   border-radius: var(--b-radius-sm);
+   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.shop__cart-info {
+   display: flex;
+   gap: var(--gap-mm);
+   flex-direction: column;
+}
+
+.shop__category-info {
+   display: flex;
+   gap: var(--b-radius-sm);
+   flex-direction: column;
+}
+
+.shop__category-cash {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.main__shop-add {
+   margin-top: var(--w-sm);
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+
+.add__shop {
+   width: 20%;
+
+   position: absolute;
+   right: 0;
+   top: 0;
+   
+   background: #f8f9fa;
+   padding: var(--gap-mm);
+
+   transform: translateX(100%);
+   transition: all .6s ease;
+}
+
+.add__shop.visible{
+   transform: translateX(0%);
+}
+
+.add__shop-pages {
+   margin-top: var(--gap-lg);
+
+   display: flex;
+   flex-direction: column;
+   gap: var(--gap-sm);
+}
+
+.add__shop-carts {
+   display: flex;
+   flex-direction: column;
+   gap: var(--gap-mm);
+   align-items: flex-start;
+}
+
+.add__shop-cart {
+   width: 100%;
+
+   background: var(--white);
+}
+
+.shop__cart--image {
+   width: var(--w-xl);
+   height: var(--w-xl);
+}
+
+
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping</title>
+  <link rel="shortcut icon" href="assets/images/toolbox-svgrepo-com.svg" type="image/x-icon">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Allan&family=Anton&family=Baskervville&family=Bebas+Neue&family=DM+Serif+Display&family=IBM+Plex+Sans&family=Inter&family=Kumbh+Sans&family=Libre+Baskerville&family=Lora&family=Merriweather&family=Metal+Mania&family=Nosifer&family=Nunito+Sans:opsz@6..12&family=Oswald&family=Playfair+Display&family=Poppins&family=Raleway&family=Roboto&family=Rubik&family=Space+Mono&family=Ubuntu&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar container">
+    <div class="navbar__shop">
+      <div class="navbar__shop-logo">
+        <img src="assets/images/shopping-cart-svgrepo-com.svg" alt="">
+      </div>
+      <a href="index.html" class="navbar__shop-title">Shopping</a>
+    </div>
+
+    <form class="navbar__form" data-form>
+      <input type="search" name="search" id="search">
+      <button type="submit" class="navbar__form-btn btn-search">Search</button>
+    </form>
+  </nav>
+
+  <main class="main__shop container">
+    <p class="error_message" data-error-message></p>
+    <div class="main__shop-carts" data-carts></div>
+    <div class="main__shop-add">
+      <button class="btn-primary" data-btn>Go Baskets</button>
+    </div>
+  </main>
+
+  <div class="add__shop">
+    <h4 class="add__shop-title">Adding Shop</h4>
+    <div class="add__shop-pages">
+      <div class="add__shop-carts" data-add></div>
+      <div class="add__shop-total">
+        <span class="shop__total">Total:</span>
+        <span class="shop__price">$0</span>
+      </div>
+      <button>Check Out</button>
+    </div>
+  </div>
+</body>
+<script src="assets/js/main.js"></script>
+
+</html>

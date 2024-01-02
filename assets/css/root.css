@@ -1,0 +1,36 @@
+:root {
+   --white: #fff;
+   --bg: #edede9;
+   --dark-blue: #023047;
+   --light-gray: #adb5bd;
+   --red: #9b2226;
+
+   /*==f-size==*/
+
+   --normal:17px;
+
+   --f-weight-normal: 400;
+   --f-weight-medium: 500;
+   --f-weight-bold: 600;
+
+
+   /*==gap==*/
+
+   --gap-sm: 10px;
+   --gap-mm: 15px;
+   --gap-lg: 20px;
+   --gap-xlg: 25px;
+
+
+   /*==weight==*/
+
+   --w-sm: 40px;
+   --w-mm: 60px;
+   --w-xl: 90px;
+   --w-lg: 200px;
+
+   /*==br==*/
+
+   --b-radius-sm: 5px;
+
+}

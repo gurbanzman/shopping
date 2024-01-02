@@ -1,0 +1,35 @@
+.btn-add,
+.btn-primary,
+.btn-search {
+   background: var(--bg);
+
+   font-weight: var(--f-weight-medium);
+   font-size: var(--gap-mm);
+
+   padding: var(--gap-sm);
+   border-radius: var(--gap-sm);
+   cursor: pointer;
+}
+
+.btn-add {
+   padding:  var(--gap-sm) var(--gap-lg);
+}
+
+.btn-primary {
+
+   font-size: var(--normal);
+
+   padding: var(--gap-xlg) var(--w-sm);
+}
+
+.shop__category-cash button {
+   padding: var(--b-radius-sm) var(--gap-sm);
+   border-radius: var(--b-radius-sm);
+
+   cursor: pointer;
+}
+
+.btn-delete {
+   background: var(--red);
+   color: var(--white);
+}

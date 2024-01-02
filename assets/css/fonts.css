@@ -1,0 +1,27 @@
+.navbar__shop-title,
+.add__shop-title {
+   font-size: var(--gap-lg);
+   font-weight: var(--f-weight-bold);
+}
+
+.shop__cart-category {
+   font-size: var(--normal);
+   font-weight: var(--f-weight-bold);
+   text-decoration: underline;
+}
+
+.shop__category-description,
+.shop__category-title {
+   font-size: var(--gap-mm);
+   font-weight: var(--f-weight-bold);
+}
+
+.shop__category-description {
+   color: var(--light-gray);
+   font-weight: var(--f-weight-normal);
+}
+
+.shop__category-price {
+   font-size: var(--normal);
+   font-weight: var(--f-weight-medium);
+}
