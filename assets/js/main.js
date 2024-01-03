@@ -3,7 +3,6 @@ const carts = document.querySelector("[data-carts]");
 const errorMessage = document.querySelector("[data-error-message]");
 const addingDataShop = document.querySelector("[data-add]");
 
-let addBtn = null;
 let primary = document.querySelector("[data-btn]");
 let totalPrice = document.querySelector(".shop__price");
 let sum = 0;
@@ -143,39 +142,51 @@ addShop();
 
 function addData(e, id) {
   let post = findObject(id, data);
-  let addingCart = document.querySelector("[data-add]");
+  
   sum+= Number(post.rating.count);
   totalPrice.textContent = sum + "$";
 
+  sendData(post)
+  deleteData()
+  calculateAdd(post);
+}
+
+function sendData(post) {
+  let addingCart = document.querySelector("[data-add]");
   addingCart.innerHTML += `
-      <div class="main__shop-cart add__shop-cart">
-             <div class="shop__cart-image shop__cart--image">
-               <img src="${post.image}" alt="">
+  <div class="main__shop-cart add__shop-cart" data-carts="${post.id}">
+         <div class="shop__cart-image shop__cart--image">
+           <img src="${post.image}" alt="">
+         </div>
+         <div class="shop__cart-info">
+             <p class="shop__category-title">${post.title
+               .slice(1, 50)
+               .concat("...")}</p>
+           <div class="shop__category-cash">
+             <span class="shop__category-price">Price: ${
+               post.rating.count
+             }</span>
+             <div class="shop__category-cal">
+               <button class="minus" projectID="${post.id}"> - </button>
+               <span> 1 </span>
+               <button class="plus" projectID="${post.id}"> + </button>
              </div>
-             <div class="shop__cart-info">
-                 <p class="shop__category-title">${post.title
-                   .slice(1, 50)
-                   .concat("...")}</p>
-               <div class="shop__category-cash">
-                 <span class="shop__category-price">Price: ${
-                   post.rating.count
-                 }</span>
-                 <div class="shop__category-cal">
-                   <button class="minus"> - </button>
-                   <span> 1 </span>
-                   <button class="plus"> + </button>
-                 </div>
-                 <button class="btn-delete">Delete</button>
-               </div>
-             </div>        
+             <button class="btn-delete" data-delete="${post.id}">Delete</button>
            </div>
-      `;
-      calculateAdd(post);
+         </div>        
+       </div>
+  `;
 }
 
 function addShop() {
   primary.addEventListener("click", (e) => {
     document.querySelector(".add__shop").classList.toggle("visible");
+  });
+}
+
+function filterData(id,data) {
+  return data.filter(item => {
+    return item.id != id
   });
 }
 
@@ -191,24 +202,41 @@ function calculateAdd(post) {
    shop__cart.forEach(item => {
       let minus = item.querySelector('.minus');
       let plus = item.querySelector('.plus');
-
       minusCal(minus,post);
       plusCal(plus,post);
    })
 }
 
-function minusCal(minus, data) {
+function minusCal(minus) {
    minus.addEventListener("click", e => {
-      sum -= Number(data.rating.count)
+    let projectID = minus.getAttribute("projectID");
+    let post = findObject(projectID,data);
+      sum -= Number(post.rating.count)
       totalPrice.textContent = sum + "$";
    })
 }
 
-function plusCal(plus, data) {
+function plusCal(plus) {
    plus.addEventListener("click", e => {
-      sum += Number(data.rating.count)
+    let projectID = plus.getAttribute("projectID");
+    let post = findObject(projectID,data);
+      sum += Number(post.rating.count)
       totalPrice.textContent = sum + "$";
    })
+}
+
+function deleteData() {
+  let deleteBtn = document.querySelectorAll('.btn-delete');
+
+  deleteBtn.forEach(item => {
+    item.addEventListener('click', delData)
+  })
+}
+
+function delData () {
+  let btnDelete = event.target.getAttribute("data-delete");
+  let deleteID = findObject(btnDelete,data);
+  console.log(deleteID);
 }
 
 
