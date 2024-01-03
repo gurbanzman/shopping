@@ -162,13 +162,13 @@ function sendData(post) {
              <p class="shop__category-title">${post.title
                .slice(1, 50)
                .concat("...")}</p>
-           <div class="shop__category-cash">
+           <div class="shop__category-cash shop__category--cash">
              <span class="shop__category-price">Price: ${
                post.rating.count
              }</span>
              <div class="shop__category-cal">
                <button class="minus" projectID="${post.id}"> - </button>
-               <span> 1 </span>
+               <span class="shop__category-value" data-value="${post.id}"> 1 </span>
                <button class="plus" projectID="${post.id}"> + </button>
              </div>
              <button class="btn-delete" data-delete="${post.id}">Delete</button>
@@ -202,26 +202,29 @@ function calculateAdd(post) {
    shop__cart.forEach(item => {
       let minus = item.querySelector('.minus');
       let plus = item.querySelector('.plus');
-      minusCal(minus,post);
-      plusCal(plus,post);
+      let changeValue = item.querySelector('.shop__category-value');
+      minusCal(minus,changeValue);
+      plusCal(plus,changeValue);
    })
 }
 
-function minusCal(minus) {
+function minusCal(minus,price) {
    minus.addEventListener("click", e => {
     let projectID = minus.getAttribute("projectID");
     let post = findObject(projectID,data);
-      sum -= Number(post.rating.count)
+      sum -= Number(post.rating.count);
       totalPrice.textContent = sum + "$";
+      price.textContent = Number(price.textContent) - 1
    })
 }
 
-function plusCal(plus) {
+function plusCal(plus,price) {
    plus.addEventListener("click", e => {
     let projectID = plus.getAttribute("projectID");
     let post = findObject(projectID,data);
       sum += Number(post.rating.count)
       totalPrice.textContent = sum + "$";
+      price.textContent = Number(price.textContent) + 1
    })
 }
 
